@@ -3,13 +3,13 @@ const schema = mongoose.Schema;
 const objectId = mongoose.Schema.Types.ObjectId;;
  
 
-const User = new mongoose.Schema({
-    email: String,
-    password: String, 
+const User = new schema({
     name: String,
-})
+    email: {type: String, unique: true},
+    password: String
+  });
 
-const Todo = new mongoose.Schema({
+const Todo = new schema({
     description: String,
     done: Boolean,
     userID: objectId,
